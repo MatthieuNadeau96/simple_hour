@@ -26,18 +26,44 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Expanded(
                 child: GridView.count(
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 2,
                   crossAxisCount: 1,
                   children: List.generate(
                     hours.length,
                     (index) => Container(
                       margin: EdgeInsets.symmetric(vertical: 5),
-                      color: Colors.grey,
+                      color: Colors.grey[300],
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            '${hours[index].hour}${hours[index].meridiem}',
-                            style: TextStyle(
-                              fontSize: 35,
+                          RichText(
+                            text: TextSpan(
+                                text: '${hours[index].hour}',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: '${hours[index].meridiem}',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ]),
+                          ),
+                          Flexible(
+                            child: Container(
+                              height: 60,
+                              color: Colors.white,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                              ),
                             ),
                           ),
                         ],
