@@ -22,8 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     hours = getHours();
     print(currentHourOfDay);
     _autoScrollController.scrollToIndex(
-      10,
-      preferPosition: AutoScrollPosition.begin,
+      currentHourOfDay - 1,
+      preferPosition: AutoScrollPosition.middle,
       duration: Duration(milliseconds: 2000),
     );
   }
